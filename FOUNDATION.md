@@ -32,12 +32,15 @@ Date: 2026-11-01. Status: agreed direction; proposed details remain labelled.
 - **FND-9 — Workspace.** Use public, independent repositories, pinned as Git
   submodules in this wrapper. The wrapper provides one CLion entry point.
 
-## Proposed first exercise
+## Proposed work order
 
-Freeze a dense scalar `eval` contract, then realize it with core declarations,
-portable fixtures, and a target adapter. Demonstrate silence, repeated values,
-empty inputs, fresh recordings, outputless targets, and failure separation.
-Run with core's declared dependency closure and no optional library.
+Agree language specification conventions and chapter order first. Extract
+grammar and semantic rules from reviewed examples, starting with source text
+and modules. Then connect a scalar function and its eval case to core contracts.
+
+The first executable slice can demonstrate silence, repeated values, empty
+inputs, fresh recordings, outputless targets, and failure separation. Run it
+with core's declared dependency closure and no optional library.
 
 This exercise proposes behavior; it does not accept earlier drafts wholesale.
 No implementation or conformance claim is made by this scaffold.

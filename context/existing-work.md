@@ -16,3 +16,6 @@ experiments, and migration notes here or in their existing repositories.
 The new member projects state complete contracts directly. They neither import
 historical source nor use observed behavior as their authority. Existing projects
 remain intact during this work.
+
+[Language specification extraction](language-specification-extraction.md)
+records the source snapshot and candidate topics for the first drafting pass.
