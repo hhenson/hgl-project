@@ -1,0 +1,6 @@
+/build/
+/cmake-build-*/
+/.idea/
+/.venv/
+__pycache__/
+.DS_Store

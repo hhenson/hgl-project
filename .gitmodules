@@ -1,0 +1,9 @@
+[submodule "hgl_spec"]
+	path = hgl_spec
+	url = https://github.com/hhenson/hgl_spec.git
+[submodule "hgl_core"]
+	path = hgl_core
+	url = https://github.com/hhenson/hgl_core.git
+[submodule "hgl_std"]
+	path = hgl_std
+	url = https://github.com/hhenson/hgl_std.git
