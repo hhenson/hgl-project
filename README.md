@@ -12,6 +12,8 @@ specification, mandatory core, and standard library together.
 Start with the [foundation charter](FOUNDATION.md). Historical context stays
 in [existing work](context/existing-work.md); member repositories stand alone.
 Track [open decisions](https://github.com/hhenson/hgl-project/issues/2) in issues.
+The [language baseline review](context/language-baseline-review.md) summarizes
+the initial thirteen-chapter specification and its improvement priorities.
 
 ## Checkout and CLion
 
@@ -25,5 +27,6 @@ lists workspace files; it builds no compiler or runtime. Each submodule pins
 one reviewed revision. Commit member changes in their owning repository,
 then update the wrapper's pins.
 
-This is the foundation scaffold. It supplies no executable core or conformance
-runner yet. Practical examples will refine the proposed contracts.
+The language chapters contain the initial reviewed baseline and labelled
+proposals. The workspace supplies no executable core or conformance runner yet.
+Practical examples and core cases will refine the contracts.

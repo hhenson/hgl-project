@@ -37,5 +37,9 @@ observations as review questions until their governing rule is explicit.
 - Keep lexical policy, grammar, phase/type constraints, runtime API, and target
   implementation decisions distinct. Move no status claim automatically.
 
-The proposed conventions and chapter outline live in `hgl_spec`. Historical
+The conventions and chapter outline live in `hgl_spec`. Historical
 source mapping stays here; member documents stand alone.
+
+The conventions and outline are now agreed. The
+[baseline review](language-baseline-review.md) maps the completed first pass
+and its remaining precision/coverage work.

@@ -35,17 +35,18 @@ Date: 2026-11-01. Status: agreed direction; proposed details remain labelled.
   owning repository's issue tracker, outside specification and explanation
   documents.
 
-## Proposed work order
+## Agreed specification work order
 
-Agree language specification conventions and chapter order first. Extract
+Use the agreed specification conventions and thirteen-chapter outline. Extract
 grammar and semantic rules from reviewed examples, starting with source text
-and modules. Then connect a scalar function and its eval case to core contracts.
+and modules. The initial language baseline now covers the full outline while
+preserving proposed extensions. Next refine it through examples and core cases.
 
 The first executable slice can demonstrate silence, repeated values, empty
 inputs, fresh recordings, outputless targets, and failure separation. Run it
 with core's declared dependency closure and no optional library.
 
-This exercise proposes behavior; it does not accept earlier drafts wholesale.
+An exercise's proposed behavior does not become agreed through extraction.
 No implementation or conformance claim is made by this scaffold.
 
 Member issue trackers hold detailed questions. Resolve a question explicitly

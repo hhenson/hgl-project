@@ -19,3 +19,6 @@ remain intact during this work.
 
 [Language specification extraction](language-specification-extraction.md)
 records the source snapshot and candidate topics for the first drafting pass.
+
+[Language baseline review](language-baseline-review.md) records extraction
+coverage, validation scope, and prioritized improvement areas.
