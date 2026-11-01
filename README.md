@@ -11,6 +11,7 @@ specification, mandatory core, and standard library together.
 
 Start with the [foundation charter](FOUNDATION.md). Historical context stays
 in [existing work](context/existing-work.md); member repositories stand alone.
+Track [open decisions](https://github.com/hhenson/hgl-project/issues/2) in issues.
 
 ## Checkout and CLion
 
