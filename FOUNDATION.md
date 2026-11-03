@@ -31,24 +31,23 @@ Date: 2026-11-01. Status: agreed direction; proposed details remain labelled.
   explanation only when a concept needs sustained justification.
 - **FND-9 — Workspace.** Use public, independent repositories, pinned as Git
   submodules in this wrapper. The wrapper provides one CLion entry point.
+- **FND-10 — Decisions.** Keep open questions and decision checklists in the
+  owning repository's issue tracker, outside specification and explanation
+  documents.
 
-## Proposed first exercise
+## Agreed specification work order
 
-Freeze a dense scalar `eval` contract, then realize it with core declarations,
-portable fixtures, and a target adapter. Demonstrate silence, repeated values,
-empty inputs, fresh recordings, outputless targets, and failure separation.
-Run with core's declared dependency closure and no optional library.
+Use the agreed specification conventions and thirteen-chapter outline. Extract
+grammar and semantic rules from reviewed examples, starting with source text
+and modules. The initial language baseline now covers the full outline while
+preserving proposed extensions. Next refine it through examples and core cases.
 
-This exercise proposes behavior; it does not accept earlier drafts wholesale.
+The first executable slice can demonstrate silence, repeated values, empty
+inputs, fresh recordings, outputless targets, and failure separation. Run it
+with core's declared dependency closure and no optional library.
+
+An exercise's proposed behavior does not become agreed through extraction.
 No implementation or conformance claim is made by this scaffold.
 
-## Open
-
-- Exact native API, public core names, and mandatory type domains.
-- Eval target selection, time model, input profiles, and failure codes.
-- Test-host API and observations requiring native instrumentation.
-- Location of portable language-only rejection tests.
-- Compatibility, versioning, and the first implementation target.
-
-Member documents own detailed questions. Resolve a question explicitly before
-promoting its proposed text to an agreed rule.
+Member issue trackers hold detailed questions. Resolve a question explicitly
+before promoting its proposed text to an agreed rule.

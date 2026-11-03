@@ -2,6 +2,8 @@
 
 - Keep documents, discussions, issues, and reviews terse. Avoid extended dialogue.
 - Read [FOUNDATION.md](FOUNDATION.md); preserve its agreed/proposed/open labels.
+- Keep open questions and decision checklists in the owning repository's issue
+  tracker, outside specification and explanation documents.
 - Keep historical knowledge in this wrapper. Member projects must be usable alone.
 - Reuse reviewed ideas. Existing behavior does not silently become a rule.
 - Member repositories own their contracts and files. Update submodule pins after
