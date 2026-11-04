@@ -70,6 +70,12 @@ operand. Scalar options bind during composition or execute for the current
 value/runtime invocation. They introduce no hidden temporal inputs. Further
 API and numerical choices remain in issues.
 
+The lifting review fixes nullable/default argument binding and stable invocation
+values/views. Aggregate lifting uses each type's ordinary validity contract;
+an unsized list adds neither a required size nor a recursive `all_valid` gate.
+Fixed-size lists and windows retain their type-defined readiness. Core records
+the corresponding observations without accepting the proposed eval profile.
+
 ## Validation scope
 
 Checked local document links, rule-ID uniqueness, grammar-definition uniqueness,
