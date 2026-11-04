@@ -76,6 +76,11 @@ an unsized list adds neither a required size nor a recursive `all_valid` gate.
 Fixed-size lists and windows retain their type-defined readiness. Core records
 the corresponding observations without accepting the proposed eval profile.
 
+Source illustrations now discriminate static division-policy typing, returned
+Err data versus explicit node-failure propagation, and defaulted temporal
+argument admission, including default/null precedence. They introduce no new
+semantics or executable conformance claim.
+
 ## Validation scope
 
 Checked local document links, rule-ID uniqueness, grammar-definition uniqueness,
