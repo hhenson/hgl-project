@@ -81,6 +81,12 @@ Err data versus explicit node-failure propagation, and defaulted temporal
 argument admission, including default/null precedence. They introduce no new
 semantics or executable conformance claim.
 
+Nullable ordinary values now use `T?`, including parameters and results.
+`list<T?>` and `list<T>?` distinguish nullable elements from a nullable list.
+Guarded immutable parameters/locals refine to T; present null remains distinct
+from temporal invalidity, silence, and result propagation. Core records concrete
+nullable/default binding observations without fixing a native representation.
+
 ## Validation scope
 
 Checked local document links, rule-ID uniqueness, grammar-definition uniqueness,
