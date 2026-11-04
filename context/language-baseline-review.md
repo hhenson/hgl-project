@@ -37,7 +37,7 @@ implementation limits, and build recipes were excluded deliberately.
 
 | Priority | Finding | Consequence |
 | --- | --- | --- |
-| P0 | Grammar references close, but contextual/generic forms still need disambiguation cases | A closed grammar is not necessarily an unambiguous language definition |
+| P0 | Reviewed disambiguation rules and examples now cover generic construction, lambda extent, const modifiers/names, generic kinds, constraint precedence, and sequences | Executable source cases remain planned; document checks alone do not prove unambiguity |
 | P0 | Core numeric/operation domains and failure phases are incomplete | Equivalent source can otherwise admit inconsistent results or errors |
 | P0 | Runtime conformance links remain planned | Document assertions do not demonstrate execution |
 | P1 | Phase/capability/borrow rules span several chapters | A single checked matrix will expose inconsistent permissions |
@@ -48,6 +48,15 @@ implementation limits, and build recipes were excluded deliberately.
 Follow-up work is tracked in
 [the improvement issue](https://github.com/hhenson/hgl_spec/issues/3).
 Unresolved design choices stay in [the decision tracker](https://github.com/hhenson/hgl_spec/issues/2).
+
+The grammar review retained angle-bracket generics with declaration-aware
+resolution, expression-delimited lambda bodies, and contextual `const` modifiers.
+Outside modifier positions, `const` is an ordinary name with no role selector.
+Generic kinds follow signature/constraint uses; `type(N)` constrains a
+compile-time ordinary value's type. Constraint precedence is `!`, then `&&`,
+then `||`. Brackets always denote sequences with either value entries or pair
+entries, never a mixture; use sites constrain their interpretation. These
+decisions do not accept the proposed eval or delta runtime profiles.
 
 ## Validation scope
 
