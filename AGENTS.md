@@ -1,5 +1,9 @@
 # Project rules
 
+- Before every push, check the branch's PR state on GitHub. If its previous PR
+  is merged, fetch `origin/main`, start a fresh `codex/` branch from it, and carry
+  forward only the new changes. Do not push follow-up commits to a merged PR's
+  branch; open a new PR for the fresh branch.
 - Keep documents, discussions, issues, and reviews terse. Avoid extended dialogue.
 - Read [FOUNDATION.md](FOUNDATION.md); preserve its agreed/proposed/open labels.
 - Keep open questions and decision checklists in the owning repository's issue
