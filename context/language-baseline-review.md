@@ -38,7 +38,7 @@ implementation limits, and build recipes were excluded deliberately.
 | Priority | Finding | Consequence |
 | --- | --- | --- |
 | P0 | Reviewed disambiguation rules and examples now cover generic construction, lambda extent, const modifiers/names, generic kinds, constraint precedence, and sequences | Executable source cases remain planned; document checks alone do not prove unambiguity |
-| P0 | Numeric baseline, IEEE-default/checked division, tolerance, and full comparison are documented | Configuration order/phase rules, numerical edge cases, and executable conformance still need completion |
+| P0 | Numeric baseline, division policies, tolerance, full comparison, and configuration order/phases are documented | Public declarations, numerical edge cases, and executable conformance still need completion |
 | P0 | Runtime conformance links remain planned | Document assertions do not demonstrate execution |
 | P1 | Phase/capability/borrow rules span several chapters | A single checked matrix will expose inconsistent permissions |
 | P1 | Aggregate/delta/ref boundaries need more discriminating examples | Held values, publications, absence, and lifetime can be confused |
@@ -65,7 +65,10 @@ the mathematical contract and expected observations; the language owns notation
 and binding. Checked division with `zero: error` returns `result<f64, error>`;
 signed zero divisors return Err with code `numeric.division_by_zero`. This
 policy is fixed during checking, and propagation uses the existing result rules.
-Further configuration and numerical choices remain in issues.
+Configuration follows written evaluation order: left operand, options, right
+operand. Scalar options bind during composition or execute for the current
+value/runtime invocation. They introduce no hidden temporal inputs. Further
+API and numerical choices remain in issues.
 
 ## Validation scope
 
