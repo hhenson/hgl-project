@@ -1,0 +1,3 @@
+.content { width: 62rem; }
+.main .content { max-width: 100%; }
+table.docutils { display: block; overflow-x: auto; }

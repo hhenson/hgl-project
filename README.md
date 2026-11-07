@@ -30,3 +30,10 @@ then update the wrapper's pins.
 The language chapters contain the initial reviewed baseline and labelled
 proposals. The workspace supplies no executable core or conformance runner yet.
 Practical examples and core cases will refine the contracts.
+
+## Documentation site
+
+The Read the Docs configuration builds one specification site from this wrapper's
+pinned member documents. [Publishing and local preview](docs/publishing.md)
+describes the configuration and account setup. Generated pages are not committed;
+edit each document in its owning repository.

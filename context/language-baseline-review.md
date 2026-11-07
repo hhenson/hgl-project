@@ -38,7 +38,7 @@ implementation limits, and build recipes were excluded deliberately.
 | Priority | Finding | Consequence |
 | --- | --- | --- |
 | P0 | Reviewed disambiguation rules and examples now cover generic construction, lambda extent, const modifiers/names, generic kinds, constraint precedence, and sequences | Executable source cases remain planned; document checks alone do not prove unambiguity |
-| P0 | Numeric baseline, IEEE-default division, tolerance, and full comparison are documented | Error-policy API, numerical edge cases, and executable conformance still need completion |
+| P0 | Numeric baseline, division policies, tolerance, full comparison, and configuration order/phases are documented | Public declarations, numerical edge cases, and executable conformance still need completion |
 | P0 | Runtime conformance links remain planned | Document assertions do not demonstrate execution |
 | P1 | Phase/capability/borrow rules span several chapters | A single checked matrix will expose inconsistent permissions |
 | P1 | Aggregate/delta/ref boundaries need more discriminating examples | Held values, publications, absence, and lifetime can be confused |
@@ -62,7 +62,40 @@ The numeric review agreed operator configuration, symmetric absolute/relative
 tolerance, and `<=>` with explicit unordered outcomes. Floating-result `/`
 defaults to IEEE outcomes, with NaN and error-producing alternatives. Core owns
 the mathematical contract and expected observations; the language owns notation
-and binding. The error-policy API remains proposed, with choices kept in issues.
+and binding. Checked division with `zero: error` returns `result<f64, error>`;
+signed zero divisors return Err with code `numeric.division_by_zero`. This
+policy is fixed during checking, and propagation uses the existing result rules.
+Configuration follows written evaluation order: left operand, options, right
+operand. Scalar options bind during composition or execute for the current
+value/runtime invocation. They introduce no hidden temporal inputs. Further
+API and numerical choices remain in issues.
+
+The lifting review fixes nullable/default argument binding and stable invocation
+values/views. Aggregate lifting uses each type's ordinary validity contract;
+an unsized list adds neither a required size nor a recursive `all_valid` gate.
+Fixed-size lists and windows retain their type-defined readiness. Core records
+the corresponding observations without accepting the proposed eval profile.
+
+Source illustrations now discriminate static division-policy typing, returned
+Err data versus explicit node-failure propagation, and defaulted temporal
+argument admission, including default/null precedence. They introduce no new
+semantics or executable conformance claim.
+
+Nullable ordinary values now use `T?`, including parameters and results.
+`list<T?>` and `list<T>?` distinguish nullable elements from a nullable list.
+Guarded immutable parameters/locals refine to T; present null remains distinct
+from temporal invalidity, silence, and result propagation. Core records concrete
+nullable/default binding observations without fixing a native representation.
+
+The next proposed core slice is scalar temporal endpoint observation. Its
+source map is `hgraph_spec` snapshot `606e77a`, `runtime/time_series.md`
+TS-1–3/6–8, `runtime/scalar_types.md` VAL-1/16–17, and
+`language/docs/design/delta-value-metadata.md`. Publication, equal ticks,
+silence, invalidation notification, guarded scalar deltas, and retained values
+are transcribed without implementation details. A nullable `last_modified`
+result is an explicit new proposal; the historical native sentinel does not
+silently become a language timestamp API. Aggregate and borrow-lifetime source
+examples also address the remaining two review findings.
 
 ## Validation scope
 
