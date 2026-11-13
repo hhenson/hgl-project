@@ -92,10 +92,10 @@ source map is `hgraph_spec` snapshot `606e77a`, `runtime/time_series.md`
 TS-1–3/6–8, `runtime/scalar_types.md` VAL-1/16–17, and
 `language/docs/design/delta-value-metadata.md`. Publication, equal ticks,
 silence, invalidation notification, guarded scalar deltas, and retained values
-are transcribed without implementation details. A nullable `last_modified`
-result is an explicit new proposal; the historical native sentinel does not
-silently become a language timestamp API. Aggregate and borrow-lifetime source
-examples also address the remaining two review findings.
+are transcribed without implementation details. The scalar `last_modified`
+rule is now agreed: it returns the retained publication time or null while
+invalid. Aggregate and borrow-lifetime source examples also address the
+remaining two review findings.
 
 ## Validation scope
 
