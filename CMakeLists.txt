@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.25)
 project(hgl_workspace LANGUAGES NONE)
 
-# Expose workspace documents and future sources without imposing a target toolchain.
+# Expose member sources without imposing a target toolchain.
 file(GLOB_RECURSE HGL_MEMBER_FILES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/context/*.md"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl_spec/*.md"
@@ -14,9 +14,16 @@ file(GLOB_RECURSE HGL_MEMBER_FILES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl_std/*.hgl"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl_std/*.h"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl_std/*.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/hgl_std/*.rs")
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl_std/*.rs"
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/docs/*.md"
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.rs"
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.toml"
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.hgl"
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.ebnf")
 set(HGL_WORKSPACE_FILES
     README.md AGENTS.md FOUNDATION.md
+    hgl-compiler/README.md hgl-compiler/AGENTS.md hgl-compiler/LICENSE
+    hgl-compiler/Cargo.toml hgl-compiler/Cargo.lock hgl-compiler/rust-toolchain.toml
     ${HGL_MEMBER_FILES})
 add_custom_target(hgl_workspace_files SOURCES ${HGL_WORKSPACE_FILES})
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HGL_MEMBER_FILES})

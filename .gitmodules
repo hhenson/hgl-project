@@ -7,3 +7,6 @@
 [submodule "hgl_std"]
 	path = hgl_std
 	url = https://github.com/hhenson/hgl_std.git
+[submodule "hgl-compiler"]
+	path = hgl-compiler
+	url = https://github.com/hhenson/hgl-compiler.git
