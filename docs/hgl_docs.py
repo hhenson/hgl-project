@@ -10,7 +10,7 @@ from pygments.lexers import TextLexer
 
 
 MEMBERS = ("hgl_spec", "hgl_core", "hgl_std")
-LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
+LINK = re.compile(r"(?<!!)\[(?P<label>[^\]]+)\]\((?P<target>[^)]+)\)")
 GITHUB = re.compile(
     r"https://github\.com/hhenson/(hgl_spec|hgl_core|hgl_std)"
     r"(?:/blob/[^/]+/([^\s)#]+)(#[^\s)]+)?)?(?=[\s)]|$)"
@@ -35,11 +35,27 @@ def local_links(text: str, destination: Path, site: Path) -> str:
     return GITHUB.sub(replace, text)
 
 
+def repository_links(text: str, source: Path, destination: Path, repository: Path, base_url: str) -> str:
+    """Link to the pinned source when a member file is outside the published pages."""
+    def replace(match: re.Match[str]) -> str:
+        path, separator, fragment = match["target"].partition("#")
+        if not path or "://" in path or path.startswith("/") or (destination.parent / path).is_file():
+            return match[0]
+        file = (source.parent / path).resolve()
+        if not file.is_relative_to(repository) or not file.is_file():
+            return match[0]
+        relative = file.relative_to(repository).as_posix()
+        return f'[{match["label"]}]({base_url}/{relative}{separator}{fragment})'
+
+    return LINK.sub(replace, text)
+
+
 def children(index: Path, candidates: list[Path]) -> list[Path]:
     """Use each repository's link order, then include new documents by name."""
     available = {p.resolve(): p for p in candidates}
     ordered = []
-    for target in LINK.findall(index.read_text(encoding="utf-8")):
+    for link in LINK.finditer(index.read_text(encoding="utf-8")):
+        target = link["target"]
         if "://" in target:
             continue
         candidate = (index.parent / target.split("#", 1)[0]).resolve()
@@ -88,14 +104,13 @@ def prepare_sources(site: Path) -> None:
     revisions = {repository: revision(repository) for repository in {p[2] for p in sources}}
     for source, target, repository in sources:
         text = source.read_text(encoding="utf-8")
-        text = local_links(text, target, site)
-        text = re.sub(r"^```mermaid\s*$", "```{mermaid}", text, flags=re.MULTILINE)
         repository_name = "hgl-project" if repository == root else repository.name
         source_path = source.relative_to(repository).as_posix()
-        source_url = (
-            f"https://github.com/hhenson/{repository_name}/blob/"
-            f"{revisions[repository]}/{source_path}"
-        )
+        base_url = f"https://github.com/hhenson/{repository_name}/blob/{revisions[repository]}"
+        text = repository_links(text, source, target, repository, base_url)
+        text = local_links(text, target, site)
+        text = re.sub(r"^```mermaid\s*$", "```{mermaid}", text, flags=re.MULTILINE)
+        source_url = f"{base_url}/{source_path}"
         target.write_text(text + f"\n\n---\n\n[Repository source]({source_url}).\n", encoding="utf-8")
     for name in MEMBERS:
         member = destination / name
