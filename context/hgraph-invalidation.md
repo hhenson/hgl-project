@@ -47,14 +47,25 @@ followed by a clear, even from an initially invalid state. A clear followed
 by a publication would end valid. A passive input could answer the same query
 on an independent wake. This is a proposed scalar contract.
 
-hgraph's tracking layout has a size assertion and already uses a second clock
-for empty structural deltas. The choice of representation affects layout,
-checkpoint restore and collection deltas. A reference follower can lose its
+hgraph already writes a second timestamp on scalar clear. Its two readers
+use it for explicit empty list and bundle publications. For an owned scalar,
+this word could hold the clear time when invalid. This would add zero bytes
+to the record and replace one existing store. A directly bound input could
+check validity and compare that timestamp to the evaluation time on demand.
+No end-of-cycle sweep would be needed. A separate eight-byte timestamp
+would instead grow the shared 64-bit tracking record from 48 to 56 bytes,
+about 7.6 MiB per million records before alignment and allocator effects.
+These are layout estimates. CPU time has not been benchmarked.
+[Scalar clear](https://github.com/hhenson/hgraph/blob/55be4cde3afb32718a6d9fb07c940cf3a0c344f3/src/hgraph/types/time_series/ts_data/base_view.cpp#L564-L570)
+· [Structural readers](https://github.com/hhenson/hgraph/blob/55be4cde3afb32718a6d9fb07c940cf3a0c344f3/src/hgraph/types/time_series/ts_delta.cpp#L695-L723)
+· [Tracking layout](https://github.com/hhenson/hgraph/blob/55be4cde3afb32718a6d9fb07c940cf3a0c344f3/include/hgraph/types/time_series/ts_data/types.h#L346-L359)
+
+A scalar implementation would need to preserve checkpoint semantics and the
+existing meaning of that word on structural values. A reference follower can lose its
 target while the producer stays valid, and a dictionary child can become
 invalid while its key remains present. Extending the query to these cases
 requires tracking the transition on the endpoint being observed.
-[Tracking layout](https://github.com/hhenson/hgraph/blob/cd5e6a49f073aa537aee8a1dee1b009dc14fed8d/include/hgraph/types/time_series/ts_data/types.h#L329-L341)
-· [Layout assertion](https://github.com/hhenson/hgraph/blob/cd5e6a49f073aa537aee8a1dee1b009dc14fed8d/tests/cpp/test_type_erasure_layout.cpp#L106-L112)
+[Layout assertion](https://github.com/hhenson/hgraph/blob/cd5e6a49f073aa537aee8a1dee1b009dc14fed8d/tests/cpp/test_type_erasure_layout.cpp#L106-L112)
 · [Checkpoint implementation](https://github.com/hhenson/hgraph/blob/cd5e6a49f073aa537aee8a1dee1b009dc14fed8d/src/hgraph/types/time_series/ts_data/checkpoint.cpp#L25-L45)
 · [Reference withdrawal](https://github.com/hhenson/hgraph/blob/cd5e6a49f073aa537aee8a1dee1b009dc14fed8d/python/tests/test_runtime_spec_conformance.py#L6-L119)
 · [Child invalidation](https://github.com/hhenson/hgraph/blob/cd5e6a49f073aa537aee8a1dee1b009dc14fed8d/tests/cpp/test_ts_input.cpp#L2981-L2996)
