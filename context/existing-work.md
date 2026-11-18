@@ -22,3 +22,17 @@ records the source snapshot and candidate topics for the first drafting pass.
 
 [Language baseline review](language-baseline-review.md) records extraction
 coverage, validation scope, and prioritized improvement areas.
+
+## Runtime conformance examples
+
+The first HGL tick corpus drew scenarios from hgraph's [input activity
+tests](https://github.com/hhenson/hgraph/blob/55be4cde3afb32718a6d9fb07c940cf3a0c344f3/python/tests/test_input_activity.py),
+[delta tests](https://github.com/hhenson/hgraph/blob/55be4cde3afb32718a6d9fb07c940cf3a0c344f3/tests/cpp/test_ts_delta.cpp),
+[scheduler tests](https://github.com/hhenson/hgraph/blob/55be4cde3afb32718a6d9fb07c940cf3a0c344f3/tests/cpp/test_node_scheduler.cpp)
+and [switch tests](https://github.com/hhenson/hgraph/blob/55be4cde3afb32718a6d9fb07c940cf3a0c344f3/python/tests/ported/_wiring/test_switch.py).
+Core's [shared HGL cases](https://github.com/hhenson/hgl_core/blob/82c6b7b953bdb30e18b554be39b7fc13d89ddf5a/tests/conformance/README.md) give the
+expected observations and the status of each rule.
+
+[Observing scalar invalidation in hgraph](hgraph-invalidation.md) records the
+released engine's observable behavior and the approach taken by Alex Balabin's
+`hg_cpp` development branch.
