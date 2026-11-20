@@ -15,6 +15,7 @@ file(GLOB_RECURSE HGL_MEMBER_FILES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl_std/*.h"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl_std/*.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl_std/*.rs"
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-runtime/docs/*.md"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/docs/*.md"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.rs"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.toml"
@@ -22,6 +23,7 @@ file(GLOB_RECURSE HGL_MEMBER_FILES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.ebnf")
 set(HGL_WORKSPACE_FILES
     README.md AGENTS.md FOUNDATION.md
+    hgl-runtime/README.md hgl-runtime/AGENTS.md hgl-runtime/LICENSE
     hgl-compiler/README.md hgl-compiler/AGENTS.md hgl-compiler/LICENSE
     hgl-compiler/Cargo.toml hgl-compiler/Cargo.lock hgl-compiler/rust-toolchain.toml
     ${HGL_MEMBER_FILES})

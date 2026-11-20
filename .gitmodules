@@ -10,3 +10,6 @@
 [submodule "hgl-compiler"]
 	path = hgl-compiler
 	url = https://github.com/hhenson/hgl-compiler.git
+[submodule "hgl-runtime"]
+	path = hgl-runtime
+	url = https://github.com/hhenson/hgl-runtime.git

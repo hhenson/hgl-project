@@ -1,7 +1,7 @@
 # HGL project
 
 HGL is a language for temporal computation. This workspace brings its
-specification, mandatory core, standard library, and compiler together.
+specification, mandatory core, standard library, compiler, and Rust runtime together.
 
 | Repository | Owns |
 | --- | --- |
@@ -9,6 +9,7 @@ specification, mandatory core, standard library, and compiler together.
 | [hgl_core](https://github.com/hhenson/hgl_core) | Mandatory core API, runtime contract, HGL code, and runtime conformance |
 | [hgl_std](https://github.com/hhenson/hgl_std) | Optional standard-library contracts, HGL code, and tests |
 | [hgl-compiler](https://github.com/hhenson/hgl-compiler) | Compiler implementation, CLI, and implementation tests |
+| [hgl-runtime](https://github.com/hhenson/hgl-runtime) | Rust graph execution engine and native support for HGL core |
 
 Start with the [foundation charter](FOUNDATION.md). Historical context stays
 in [existing work](context/existing-work.md); member repositories stand alone.
@@ -36,6 +37,10 @@ The compiler's Cargo workspace is `hgl-compiler/Cargo.toml`; its
 [README](hgl-compiler/README.md) describes the build and CLI commands.
 The language chapters preserve agreed rules and labelled proposals; compiler
 implementation status does not establish runtime conformance.
+
+The [runtime design drafts](hgl-runtime) cover graph execution,
+endpoint storage and the first porting slice. The [native engine review](context/rust-runtime-port.md)
+records the C++ mechanisms that informed those proposals.
 
 ## Documentation site
 
