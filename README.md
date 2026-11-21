@@ -17,6 +17,9 @@ Track [open decisions](https://github.com/hhenson/hgl-project/issues/2) in issue
 The [language baseline review](context/language-baseline-review.md) summarizes
 the initial thirteen-chapter specification and its improvement priorities.
 
+On Apple silicon with macOS 26.0 or later, install the compiler and its SDK with
+`brew install hhenson/hgraph/hgl`.
+
 ## Checkout and CLion
 
 ```sh
