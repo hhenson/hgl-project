@@ -30,8 +30,8 @@ one reviewed revision. Commit member changes in their owning repository,
 then update the wrapper's pins.
 
 For an existing checkout, run `git submodule update --init --recursive` to
-populate new members and the compiler's own specification/core pins. Those
-nested pins belong to the compiler and may differ from the wrapper's pins.
+populate member checkouts, including the compiler's nested specification and
+core. The wrapper's specification and core pins match those nested pins.
 
 The compiler's Cargo workspace is `hgl-compiler/Cargo.toml`; its
 [README](hgl-compiler/README.md) describes the build and CLI commands.
