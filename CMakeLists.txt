@@ -20,12 +20,16 @@ file(GLOB_RECURSE HGL_MEMBER_FILES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.rs"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.toml"
     "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.hgl"
-    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.ebnf")
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-compiler/crates/*.ebnf"
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-ai/configs/*.md"
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-ai/src/*.py"
+    "${CMAKE_CURRENT_SOURCE_DIR}/hgl-ai/tests/*.py")
 set(HGL_WORKSPACE_FILES
     README.md AGENTS.md FOUNDATION.md
     hgl-runtime/README.md hgl-runtime/AGENTS.md hgl-runtime/LICENSE
     hgl-compiler/README.md hgl-compiler/AGENTS.md hgl-compiler/LICENSE
     hgl-compiler/Cargo.toml hgl-compiler/Cargo.lock hgl-compiler/rust-toolchain.toml
+    hgl-ai/README.md hgl-ai/AGENTS.md hgl-ai/LICENSE hgl-ai/pyproject.toml
     ${HGL_MEMBER_FILES})
 add_custom_target(hgl_workspace_files SOURCES ${HGL_WORKSPACE_FILES})
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HGL_MEMBER_FILES})

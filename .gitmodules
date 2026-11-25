@@ -13,3 +13,6 @@
 [submodule "hgl-runtime"]
 	path = hgl-runtime
 	url = https://github.com/hhenson/hgl-runtime.git
+[submodule "hgl-ai"]
+	path = hgl-ai
+	url = https://github.com/hhenson/hgl-ai.git
