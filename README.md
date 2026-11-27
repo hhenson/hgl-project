@@ -10,7 +10,7 @@ specification, mandatory core, standard library, compiler, and Rust runtime toge
 | [hgl_std](https://github.com/hhenson/hgl_std) | Optional standard-library contracts, HGL code, and tests |
 | [hgl-compiler](https://github.com/hhenson/hgl-compiler) | Compiler implementation, CLI, and implementation tests |
 | [hgl-runtime](https://github.com/hhenson/hgl-runtime) | Rust graph execution engine and native support for HGL core |
-| [hgl-ai](https://github.com/hhenson/hgl-ai) | Multi-host agent coordination bus, MCP server, and worker bridge |
+| [hgl-ai](https://github.com/hhenson/hgl-ai) | Coordination of the agent fleet across hosts: hub, bridge, coordinator, owner console |
 
 Start with the [foundation charter](FOUNDATION.md). Historical context stays
 in [existing work](context/existing-work.md); member repositories stand alone.
