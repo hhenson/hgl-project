@@ -39,7 +39,7 @@ core. The wrapper's specification and core pins match those nested pins.
 
 The compiler's Cargo workspace is `hgl-compiler/Cargo.toml`; its
 [README](hgl-compiler/README.md) describes the build and CLI commands.
-The pinned compiler's C++ target uses the hgraph 0.9.23 SDK in CI.
+The compiler's [HGRAPH_TAG](hgl-compiler/HGRAPH_TAG) pins the hgraph SDK used by C++ CI.
 The language chapters preserve agreed rules and labelled proposals; compiler
 implementation status does not establish runtime conformance.
 
