@@ -83,6 +83,23 @@ language lifts, or syntax. Equal names do not show equal behavior.
 | Tables | `from_table` `from_table_const` `table_schema` `to_table` |
 | Frames | `concat` `filter_cs` `filter_frame` `from_data_frame` `from_data_frame_batches` `group_by` `replay_data_frame` `sorted_` `to_data_frame` `ungroup` `with_columns` |
 
+## Projection in a graph
+
+hgraph already has the graph-level behaviour that `hgl_spec` GEN-19 to
+GEN-21 give the four projection identities. The correspondence, from
+hgraph's operator documentation at the snapshot above:
+
+| hgraph | Behaviour there | HGL rule |
+| --- | --- | --- |
+| `getattr_(ts, attr)` | The field name is fixed when the graph is wired, since it decides the output schema; `port.field` delegates to it | GEN-19, GEN-21: a member's name stays a constant |
+| `getitem_(ts, key)` | `ts[key]` wires it; the key may be a scalar or a time-series, and a live key retargets the output when it changes; a list takes a time-series index | GEN-21: a key or an index may be a connection |
+| `setattr_(ts, attr, value)` | Returns a structure of the same schema with the field replaced | GEN-20, GEN-21: the graph's `var` is rebound to the candidate's result |
+| `make_tsd(key, value)` | A key change removes the old entry and publishes the value under the new key | GEN-21: a write by a ticking key reverts the key it left |
+
+hgraph has no `setitem_`. HGL's write by a ticking key into an existing
+dictionary follows `make_tsd`'s treatment of the key it left; nothing in
+hgraph was compared for it beyond that.
+
 ## Observations
 
 - The time-zone types are language types (TYPE-2) with no operation in core.
