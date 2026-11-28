@@ -23,6 +23,9 @@ records the source snapshot and candidate topics for the first drafting pass.
 [Language baseline review](language-baseline-review.md) records extraction
 coverage, validation scope, and prioritized improvement areas.
 
+[hgraph operators against core](hgraph-operator-inventory.md) places each
+public hgraph operator against core and the language, by name.
+
 ## Runtime conformance examples
 
 The first HGL tick corpus drew scenarios from hgraph's [input activity
